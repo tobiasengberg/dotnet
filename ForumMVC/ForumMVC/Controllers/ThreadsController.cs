@@ -1,11 +1,10 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ForumMVC.Models;
 
 namespace ForumMVC.Controllers;
 
-public class HomeController : Controller
+public class ThreadsController : Controller
 {
+    // GET
     public IActionResult Index()
     {
         return View();

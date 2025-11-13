@@ -1,8 +1,12 @@
+using ForumMVC.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<ForumDB>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("ForumDB"), new MySqlServerVersion(new Version(9, 0)) ));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
