@@ -11,4 +11,5 @@ public class ForumDB : DbContext
     }
 
     public DbSet<ForumThread> ForumThreads { get; set; }
+    public DbSet<BasicModel> BasicModels { get; set; }
 }
