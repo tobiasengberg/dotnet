@@ -6,4 +6,16 @@ public class ForumPost
     public Poster Poster { get; set; }
     public string Content { get; set; }
     public DateTime PostedDate { get; set; }
+
+    public ForumPost()
+    {
+        
+    }
+
+    public ForumPost(Poster poster, string content)
+    {
+        this.Poster = poster;
+        this.Content = content;
+        this.PostedDate = DateTime.Now;
+    }
 }

@@ -4,11 +4,9 @@
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
-
+<div class="container-md">
 <h2>title</h2>
-@Model.Count()
-
-<form asp-controller="Threads" asp-action="Create" >
+<form asp-controller="Threads" asp-action="Create" class="form-group mb-5" method="post">
     <label for="poster">Add a name for the poster: </label>
     <input type="text" id="poster" name="poster" value=""/>
     <label for="title">Add a thread title: </label>
@@ -17,3 +15,24 @@
     <input type="text" id="content" name="content" value=""/>
     <button type="submit" value="submit">Submit</button>
 </form>
+
+<table class="table table-striped">
+    <tr>
+        <th>Poster</th>
+        <th>Title</th>
+        <th>Date Created</th>
+        <th>Last Updated</th>
+    </tr>
+    @foreach (var forumThread in Model)
+    {
+
+        <tr>
+            <td>@forumThread.Poster.NickName</td>
+            <td>@forumThread.Title</td>
+            <td>@forumThread.DateCreated</td>
+            <td>@forumThread.LastUpdated</td>
+        </tr>
+
+    }
+</table>
+</div>
