@@ -22,6 +22,7 @@
         <th>Title</th>
         <th>Date Created</th>
         <th>Last Updated</th>
+        <th></th>
     </tr>
     @foreach (var forumThread in Model)
     {
@@ -31,6 +32,9 @@
             <td>@forumThread.Title</td>
             <td>@forumThread.DateCreated</td>
             <td>@forumThread.LastUpdated</td>
+            <td>
+                <a asp-action="Thread" asp-route-id=@forumThread.Id>Read</a>
+            </td>
         </tr>
 
     }

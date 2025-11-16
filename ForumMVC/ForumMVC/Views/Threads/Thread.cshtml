@@ -1,0 +1,12 @@
+@model ForumThread
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h1>@Model.Title</h1>
+@foreach (var post in Model.ForumPosts)
+{
+    <p>@post.Content</p>
+}

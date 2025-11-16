@@ -30,4 +30,12 @@ public class ThreadsController : Controller
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
+
+    public IActionResult Thread(int id)
+    {
+        ForumThread thread = _context.ForumThreads
+            .Include(f => f.ForumPosts)
+            .FirstOrDefault(t => t.Id == id);
+        return View(thread);
+    }
 }
