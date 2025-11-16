@@ -35,6 +35,7 @@ public class ThreadsController : Controller
     {
         ForumThread thread = _context.ForumThreads
             .Include(f => f.ForumPosts)
+            .ThenInclude(p => p.Poster)
             .FirstOrDefault(t => t.Id == id);
         return View(thread);
     }
