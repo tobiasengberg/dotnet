@@ -38,4 +38,14 @@ public class ThreadsController : Controller
             .FirstOrDefault(t => t.Id == id);
         return View(thread);
     }
+    
+    public IActionResult Reply(int id, string content, string poster)
+    {
+        ForumThread thread = _context.ForumThreads
+            .Include(f => f.ForumPosts)
+            .FirstOrDefault(t => t.Id == id);
+        thread.ForumPosts.Add(new ForumPost(new Poster {NickName = poster}, content));
+        _context.SaveChanges();
+        return RedirectToAction("Thread", new {Id = id});
+    }
 }

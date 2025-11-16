@@ -10,3 +10,11 @@
 {
     <p>@post.Content</p>
 }
+
+<form asp-controller="Threads" asp-action="Reply" asp-route-id=@Model.Id>
+    <label for="poster">Add a name for the poster: </label>
+    <input type="text" id="poster" name="poster" value=""/>
+    <label for="content">Add content: </label>
+    <input type="text" id="content" name="content" value=""/>
+    <button type="submit" value="submit">Submit</button>
+</form>
