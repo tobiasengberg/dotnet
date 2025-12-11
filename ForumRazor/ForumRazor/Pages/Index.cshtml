@@ -2,9 +2,12 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    
+    bool isEven = false;
+    int x = 10 * new Random().Next();
+    if (x % 2 == 0) isEven = true;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>The number was @x which is @isEven even</p>
 </div>
